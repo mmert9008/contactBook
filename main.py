@@ -9,58 +9,58 @@ def display_menu():
 
 
 def add_contact(contact_book):
-    name = input()
-    phone = input()
-    email = input()
-    address = input()
+    name = input("Name: ")
+    phone = input("Phone: ")
+    email = input("Email: ")
+    address = input("Address: ")
 
     if name in contact_book.keys():
-        print("Contact already exists!")
+        print("\nContact already exists!\n")
     else:
         contact_book[name] = {
             "phone": phone,
             "email": email,
             "address": address
         }
-        print("Contact added successfully!")
+        print("\nContact added successfully!\n")
 
 
 def view_contact(contact_book):
-    name = input()
+    name = input("Enter the name of the contact to view: ")
     if name not in contact_book.keys():
-        print("Contact not found!")
+        print("\nContact not found!\n")
     else:
-        print(f"Name: {name}\nPhone: {contact_book[name]['phone']}\nEmail: {contact_book[name]['email']}\nAddress: {contact_book[name]['address']}")
+        print(f"\nName: {name}\nPhone: {contact_book[name]['phone']}\nEmail: {contact_book[name]['email']}\nAddress: {contact_book[name]['address']}\n")
 
 
 def edit_contact(contact_book):
-    name = input()
+    name = input("Enter the name of the contact to edit: ")
     if name not in contact_book.keys():
-        print("Contact not found!")
+        print("\nContact not found!\n")
     else:
         contact_book[name] = {
-            "phone": input(),
-            "email": input(),
-            "address": input()
+            "phone": input("Phone: "),
+            "email": input("Email: "),
+            "address": input("Address: ")
         }
-        print("Contact updated successfully!")
+        print("\nContact updated successfully!\n")
 
 
 def delete_contact(contact_book):
-    name = input()
+    name = input("Enter the name of the contact to delete: ")
     if name not in contact_book.keys():
-        print("Contact not found!")
+        print("\nContact not found!\n")
     else:
         del contact_book[name]
-        print("Contact deleted successfully!")
+        print("\nContact deleted successfully!\n")
 
 
 def list_all_contacts(contact_book):
     if not contact_book:
-        print("No contacts available.")
+        print("\nNo contacts available.\n")
     else:
         for key, value in contact_book.items():
-            print(f"Name: {key}\nPhone: {value['phone']}\nEmail: {value['email']}\nAddress: {value['address']}\n")
+            print(f"\nName: {key}\nPhone: {value['phone']}\nEmail: {value['email']}\nAddress: {value['address']}\n")
 
 
 
@@ -71,7 +71,7 @@ if __name__ == "__main__":
 
     while True:
         display_menu()
-        choice = input("Enter your choice (1-6): ")
+        choice = input("Please make a selection (1-6): ")
 
         if choice == '1':
             add_contact(contact_book)
@@ -84,8 +84,8 @@ if __name__ == "__main__":
         elif choice == '5':
             list_all_contacts(contact_book)
         elif choice == '6':
-            print("Exiting Contact Book. Goodbye!")
+            print("\nExiting Contact Book. Goodbye!\n")
             break
         else:
-            print("Invalid choice. Please enter a number between 1 and 6.")
+            print("\nInvalid choice. Please enter a number between 1 and 6.\n")
 
