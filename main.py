@@ -38,11 +38,16 @@ def edit_contact(contact_book):
     if name not in contact_book.keys():
         print("\nContact not found!\n")
     else:
-        contact_book[name] = {
-            "phone": input("Phone: "),
-            "email": input("Email: "),
-            "address": input("Address: ")
-        }
+        new_phone = input("Phone: ")
+        new_email = input("Email: ")
+        new_address = input("Address: ")
+
+        if new_phone:
+            contact_book[name]["email"] = new_phone
+        if new_email:
+            contact_book[name]["email"] = new_email
+        if new_address:
+            contact_book[name]["address"] = new_address
         print("\nContact updated successfully!\n")
 
 
